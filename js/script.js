@@ -1,5 +1,5 @@
 function updateTime() {
-    let timestamp = new Date("2021-02-28 00:00");
+    let timestamp = new Date(2021, 01, 28, 0, 0, 0, 0);
     let currentTimestamp = new Date();
 
     let diff = Math.round((currentTimestamp.getTime() - timestamp.getTime()) / 1000);

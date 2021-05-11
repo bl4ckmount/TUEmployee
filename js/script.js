@@ -1,6 +1,6 @@
 function updateTime() {
     let timestamp = new Date(2021, 01, 28, 0, 0, 0, 0);
-    let currentTimestamp = new Date();
+    let currentTimestamp = new Date(new Date().toLocaleString("en", { timeZone:"Europe/Moscow" }));
 
     let diff = Math.round((currentTimestamp.getTime() - timestamp.getTime()) / 1000);
 
@@ -40,13 +40,13 @@ function Fetch() {
             if (!lockup) {
                 lockup = true;
                 document.querySelector(".container").style.display = "none";
-                document.querySelector(".opened").style.display = "flex";
+                document.querySelector(".container__opened").style.display = "flex";
             }
         } else {
             if (lockup) {
                 lockup = false;
                 document.querySelector(".container").style.display = "flex";
-                document.querySelector(".opened").style.display = "none";
+                document.querySelector(".container__opened").style.display = "none";
             }
             updateTime();
         }

@@ -1,0 +1,9 @@
+@media screen and (max-width: 425px) {
+    * { font-size: 2vw; }
+
+    .container, .container__opened { height: 25rem; }
+
+    .container__deltas { width: 50rem; }
+
+    .container__deltas > div { width: 1.85rem; }
+}

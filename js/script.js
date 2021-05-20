@@ -54,8 +54,8 @@ function Fetch() {
 }
 
 let lockup = false;
-let timer = setInterval(Fetch, 1000);
+let timer = setInterval(updateTime, 1000);
 
 window.onload = function() {
-    Fetch();
+    updateTime();
 }

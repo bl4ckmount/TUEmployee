@@ -29,18 +29,18 @@ function Calc(timestamp, currentTimestamp) {
 function UpdatePage(timestamp, seasonEndTimestamp) {
     let currentTimestamp = new Date(new Date().toLocaleString("en", { timeZone:"Europe/Moscow" }));
 
-    if (String(currentTimestamp) >= String(seasonEndTimestamp)) {
-        OnSeasonEnd();
-    } else {
-        data = Calc(timestamp, currentTimestamp);
+    data = Calc(timestamp, (currentTimestamp >= seasonEndTimestamp) ? seasonEndTimestamp : currentTimestamp);
 
-        document.querySelectorAll(".container__deltas > div > span:first-child").forEach(function (item, index) {
-            item.innerHTML = data[index][0];
-        });
+    document.querySelectorAll(".container__deltas > div > span:first-child").forEach(function (item, index) {
+        item.innerHTML = data[index][0];
+    });
     
-        document.querySelectorAll(".container__deltas > div > span:last-child").forEach(function (item, index) {
-            item.innerHTML = data[index][1];
-        });
+    document.querySelectorAll(".container__deltas > div > span:last-child").forEach(function (item, index) {
+        item.innerHTML = data[index][1];
+    });
+
+    if (currentTimestamp >= seasonEndTimestamp) {
+        OnSeasonEnd();
     }
 }
 
